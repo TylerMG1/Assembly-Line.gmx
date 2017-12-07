@@ -25,10 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables
+            <string>/// Initalize Variables
 
 global.rollerframe = 0;
 global.selected = -1;
+
+iconsprite = -1;
 </string>
           </argument>
         </arguments>
@@ -83,11 +85,7 @@ if global.rollerframe &lt; 16 {
             <string>/// Create selected object at the cursor
 
 if (global.selected != -1) {
-    inst = instance_create(mouse_x, mouse_y, global.selected);
-    
-    with (inst) {
-        move_snap(32, 32);
-    }
+    instance_create(mouse_x, mouse_y, global.selected);
     
     global.selected = -1;
 }
@@ -142,8 +140,34 @@ draw_text(8, 8, fps);
             <string>///Draw selected object at cursor
 
 if (global.selected != -1) {
-    draw_sprite_ext(object_get_sprite(global.selected), 0, mouse_x, mouse_y, 1, 1, 0, c_white, .5);
+    draw_sprite_ext(iconsprite, 0, mouse_x, mouse_y, 1, 1, 0, c_white, .5);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="50">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Select Starter
+
+global.selected = obj_starter;
+iconsprite = spr_starter;
 </string>
           </argument>
         </arguments>
@@ -169,6 +193,7 @@ if (global.selected != -1) {
             <string>///Select Roller
 
 global.selected = obj_roller;
+iconsprite = spr_roller;
 </string>
           </argument>
         </arguments>
