@@ -7,17 +7,17 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Materials">
-      <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_stone</sprite>
       <sprite>sprites\spr_iron_ore</sprite>
       <sprite>sprites\spr_copper</sprite>
       <sprite>sprites\spr_iron_ingot</sprite>
       <sprite>sprites\spr_copper_ingot</sprite>
+      <sprite>sprites\spr_wood</sprite>
     </sprites>
     <sprites name="Machines">
-      <sprite>sprites\spr_roller</sprite>
       <sprite>sprites\spr_starter</sprite>
-      <sprite>sprites\spr_seller</sprite>
+      <sprite>sprites\spr_roller</sprite>
+      <sprite>sprites\spr_furnace</sprite>
     </sprites>
     <sprite>sprites\spr_controller</sprite>
     <sprite>sprites\spr_cheeky</sprite>
@@ -27,11 +27,20 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\obj_room_controller</object>
     <objects name="Materials">
       <object>objects\obj_material_parent</object>
+      <object>objects\obj_stone</object>
+      <object>objects\obj_iron_ore</object>
+      <object>objects\obj_copper_ore</object>
+      <object>objects\obj_iron_ingot</object>
+      <object>objects\obj_copper_ingot</object>
     </objects>
-    <object>objects\obj_room_controller</object>
-    <object>objects\obj_roller</object>
+    <objects name="Machines">
+      <object>objects\obj_starter</object>
+      <object>objects\obj_furnace</object>
+      <object>objects\obj_roller</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rom_one</room>
