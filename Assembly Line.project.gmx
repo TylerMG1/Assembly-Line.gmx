@@ -22,12 +22,15 @@
     <sprite>sprites\spr_controller</sprite>
     <sprite>sprites\spr_cheeky</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bgr_grid</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <objects name="Materials">
+      <object>objects\obj_material_parent</object>
+    </objects>
     <object>objects\obj_room_controller</object>
-    <object>objects\obj_starter</object>
-    <object>objects\obj_starter_top</object>
     <object>objects\obj_roller</object>
   </objects>
   <rooms name="rooms">

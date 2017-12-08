@@ -29,8 +29,6 @@
 
 global.rollerframe = 0;
 global.selected = -1;
-
-iconsprite = -1;
 </string>
           </argument>
         </arguments>
@@ -55,7 +53,7 @@ iconsprite = -1;
             <kind>1</kind>
             <string>/// Changes the roller frame
 
-if global.rollerframe &lt; 16 {
+if global.rollerframe &lt; 15 {
     global.rollerframe += 1;
 } else {
     global.rollerframe = 0;
@@ -140,7 +138,7 @@ draw_text(8, 8, fps);
             <string>///Draw selected object at cursor
 
 if (global.selected != -1) {
-    draw_sprite_ext(iconsprite, 0, mouse_x, mouse_y, 1, 1, 0, c_white, .5);
+    draw_sprite_ext(object_get_sprite(global.selected), 0, (round(mouse_x/32))*32, (round(mouse_y/32))*32, 1, 1, 0, c_white, .5);
 }
 </string>
           </argument>
@@ -167,7 +165,6 @@ if (global.selected != -1) {
             <string>///Select Starter
 
 global.selected = obj_starter;
-iconsprite = spr_starter;
 </string>
           </argument>
         </arguments>
@@ -193,7 +190,6 @@ iconsprite = spr_starter;
             <string>///Select Roller
 
 global.selected = obj_roller;
-iconsprite = spr_roller;
 </string>
           </argument>
         </arguments>
