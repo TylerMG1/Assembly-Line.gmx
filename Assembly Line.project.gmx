@@ -19,12 +19,18 @@
     </sprites>
     <sprites name="Machines">
       <sprite>sprites\spr_starter</sprite>
+      <sprite>sprites\spr_starter_icon</sprite>
       <sprite>sprites\spr_roller</sprite>
+      <sprite>sprites\spr_roller_icon</sprite>
       <sprite>sprites\spr_furnace</sprite>
+      <sprite>sprites\spr_furnace_icon</sprite>
       <sprite>sprites\spr_seller</sprite>
+      <sprite>sprites\spr_seller_icon</sprite>
     </sprites>
     <sprite>sprites\spr_controller</sprite>
+    <sprite>sprites\spr_cross</sprite>
     <sprite>sprites\spr_cheeky</sprite>
+    <sprite>sprites\spr_delete</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgr_grid</background>
@@ -49,6 +55,7 @@
       <object>objects\obj_seller</object>
       <object>objects\obj_roller</object>
     </objects>
+    <object>objects\obj_delete</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rom_one</room>

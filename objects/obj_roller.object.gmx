@@ -76,6 +76,14 @@ image_index = global.rollerframe;
             <string>/// Keeps time with other rollers
 
 image_index = global.rollerframe;
+
+// Deletes the starter
+
+if place_meeting(x,y,obj_delete) {
+    instance_destroy();
+    instance_destroy(other);
+}
+
 </string>
           </argument>
         </arguments>

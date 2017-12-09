@@ -32,7 +32,10 @@ global.selected = -1;
 global.gui = 0;
 global.copperlocked = 1;
 global.ironlocked = 1;
-global.money = 0;
+global.furnacelocked = 1;
+global.money = 1000;
+gui = 0;
+col = c_white;
 </string>
           </argument>
         </arguments>
@@ -85,6 +88,43 @@ if global.rollerframe &lt; 15 {
 } else {
     global.rollerframe = 0;
 }
+
+if global.gui = 1 {
+    gui = 0;
+}
+
+// Checks to see if position is free if not goes red
+
+if (global.selected != -1) &amp;&amp; !(position_empty(mouse_x,mouse_y)) {
+    col = c_red;
+} else {
+    col = c_green;
+}  
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="54">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Deletes object object following cursor
+
+global.selected = -1;
 </string>
           </argument>
         </arguments>
@@ -109,17 +149,134 @@ if global.rollerframe &lt; 15 {
             <kind>1</kind>
             <string>/// Create selected object at the cursor
 
-if (global.selected != -1) &amp;&amp; position_empty(mouse_x,mouse_y) {
-    instance_create(mouse_x, mouse_y, global.selected);
-    
+if (global.selected = obj_delete) &amp;&amp; !(position_empty(mouse_x,mouse_y)) {
+    instance_create((round(mouse_x/32))*32, (round(mouse_y/32))*32,global.selected);
     global.selected = -1;
+    gui = 1;
+    global.gui = 2;
 }
+
+if (global.selected != -1) &amp;&amp; position_empty(mouse_x,mouse_y) {
+    instance_create((round(mouse_x/32))*32, (round(mouse_y/32))*32,global.selected);
+    global.selected = -1;
+    gui = 1;
+    global.gui = 2;
+}
+
+if gui = 1 {
+
+    // Checks if starter is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,16,400,96,464) {
+        global.selected = obj_starter;
+        global.gui = 0;
+        gui = 0;
+        if global.money &gt;= 100 {
+            global.money -= 100;
+        }
+    }
+    
+    // Checks if roller is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,96,400,176,464) {
+        global.selected = obj_roller;
+        global.gui = 0;   
+        gui = 0;     
+        if global.money &gt;= 50 {
+            global.money -= 50;
+        }
+    }
+    
+    // Checks if seller is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,176,400,256,464) {
+        global.selected = obj_seller;
+        global.gui = 0;   
+        gui = 0; 
+        if global.money &gt;= 200 {
+            global.money -= 200;
+        }   
+    }
+    
+    // Checks is furnace is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,256,400,336,464) {
+        if global.furnacelocked = 0 {
+            global.selected = obj_furnace;
+            global.gui = 0;
+            gui = 0;
+            if global.money &gt;= 200 {
+                global.money -= 200;
+            }
+        } else {
+            if global.money &gt;= 5000 {
+                global.money -= 5000;
+                global.furnacelocked = 0;
+                global.selected = obj_furnace;
+                gui = 0;
+            }
+        }
+    }
+    
+    // Checks if cross is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,576,384,592,400) {
+        global.gui = 0;
+    }
+    
+}
+
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>524</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_color</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>13</kind>
+            <string>16777215</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>526</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_font</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>12</kind>
+            <font>ft_pixel</font>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>1</string>
+          </argument>
+        </arguments>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -140,6 +297,55 @@ if (global.selected != -1) &amp;&amp; position_empty(mouse_x,mouse_y) {
 
 draw_set_colour(c_black);
 draw_text(8, 8, fps);
+
+// Draw Gui Menu
+
+if gui = 1 {
+    
+    // Draws box and cross
+    
+    draw_rectangle_colour(16,400,592,464,c_dkgray,c_dkgray,c_dkgray,c_dkgray,c_black);
+    draw_rectangle_colour(576,384,592,400,c_dkgray,c_dkgray,c_dkgray,c_dkgray,c_black);
+    draw_sprite(spr_cross,1,584,392)
+    draw_set_color(c_white);
+    
+    // Draws Starter
+       
+    draw_sprite(spr_starter_icon,1,56,429);
+    draw_text(56,400,"Starter")
+    draw_text(56,440,"Cost:$100")
+    
+    // Draws Roller
+     
+    draw_sprite(spr_roller_icon,1,136,429);
+    draw_text(136,400,"Roller");
+    draw_text(136,440,"Cost:$50");
+    
+    // Draw Seller
+    
+    draw_sprite(spr_seller_icon,1,216,429);
+    draw_text(216,400,"Seller");
+    draw_text(216,440,"Cost:$200");
+    
+    // Draw Furnace
+    
+    if global.furnacelocked = 0 {
+        draw_sprite(spr_furnace_icon,1,296,429);
+        draw_text(296,400,"Furnace");
+        draw_text(296,440,"Cost:$500");
+    } else {
+        draw_set_alpha(0.25);
+    if global.money &gt;= 5000 {
+        draw_set_color(c_green);
+    } else {
+        draw_set_color(c_red);
+    }
+        draw_sprite(spr_furnace_icon,1,296,429);
+        draw_set_alpha(1);
+        draw_text(296,400,"Furnace");
+        draw_text(296,440,"Cost:$5k");
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -164,8 +370,22 @@ draw_text(8, 8, fps);
             <kind>1</kind>
             <string>///Draw selected object at cursor
 
-if (global.selected != -1) {
-    draw_sprite_ext(object_get_sprite(global.selected), 0, (round(mouse_x/32))*32, (round(mouse_y/32))*32, 1, 1, 0, c_white, .5);
+if (global.selected = obj_delete) {
+    if col = c_green {
+        col = c_red;
+    } else {
+        col = c_green
+    }
+    
+    draw_sprite_ext(object_get_sprite(global.selected), 0, (round(mouse_x/32))*32, (round(mouse_y/32))*32, 1, 1, 0, col, .75);
+} else {
+    if (global.selected != -1) {
+        draw_sprite_ext(object_get_sprite(global.selected), 0, (round(mouse_x/32))*32, (round(mouse_y/32))*32, 1, 1, 0, col, .75);
+    }
+}
+
+if global.gui != 2 {
+    gui = 0;
 }
 
 draw_set_color(c_white);
@@ -199,7 +419,92 @@ draw_text(592,8,global.money);
         </arguments>
       </action>
     </event>
+    <event eventtype="9" enumb="88">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Select Seller
+
+global.selected = obj_delete;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="77">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Sets gui up
+
+if global.gui = 2 {
+    global.gui = 0;
+    gui = 0;
+} else {
+    global.gui = 2;
+    gui = 1;
+}
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="9" enumb="52">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Select Furnace
+if global.furnacelocked = 0 {
+    global.selected = obj_furnace;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="51">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -224,31 +529,6 @@ global.selected = obj_seller;
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="51">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select Furnace
-
-global.selected = obj_furnace;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="50">
       <action>
         <libid>1</libid>
@@ -266,9 +546,9 @@ global.selected = obj_furnace;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Select Starter
+            <string>///Select Roller
 
-global.selected = obj_starter;
+global.selected = obj_roller;
 </string>
           </argument>
         </arguments>
@@ -291,9 +571,9 @@ global.selected = obj_starter;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Select Roller
+            <string>///Select Starter
 
-global.selected = obj_roller;
+global.selected = obj_starter;
 </string>
           </argument>
         </arguments>
