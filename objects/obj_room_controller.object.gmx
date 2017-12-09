@@ -29,6 +29,33 @@
 
 global.rollerframe = 0;
 global.selected = -1;
+global.gui = 0;
+global.copperlocked = 1;
+global.ironlocked = 1;
+global.money = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -82,7 +109,7 @@ if global.rollerframe &lt; 15 {
             <kind>1</kind>
             <string>/// Create selected object at the cursor
 
-if (global.selected != -1) {
+if (global.selected != -1) &amp;&amp; position_empty(mouse_x,mouse_y) {
     instance_create(mouse_x, mouse_y, global.selected);
     
     global.selected = -1;
@@ -140,6 +167,58 @@ draw_text(8, 8, fps);
 if (global.selected != -1) {
     draw_sprite_ext(object_get_sprite(global.selected), 0, (round(mouse_x/32))*32, (round(mouse_y/32))*32, 1, 1, 0, c_white, .5);
 }
+
+draw_set_color(c_white);
+draw_set_font(ft_pixel);
+draw_text(592,8,global.money);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="110">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.money += 1000;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="52">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Select Seller
+
+global.selected = obj_seller;
 </string>
           </argument>
         </arguments>
@@ -162,7 +241,7 @@ if (global.selected != -1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Select Starter
+            <string>///Select Furnace
 
 global.selected = obj_furnace;
 </string>

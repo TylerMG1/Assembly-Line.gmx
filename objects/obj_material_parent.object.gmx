@@ -30,6 +30,34 @@
 dir = 0;
 steps = 16;
 spd = 2;
+del = 0;
+value = 10;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroys the object
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -82,7 +110,7 @@ if (steps != 0) {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_starter">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -99,11 +127,36 @@ if (steps != 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Destroy if touching different starter
+            <string>/// Deletes self if not moving
 
-if (steps == 0) {
-    instance_destroy()
+if (!place_meeting(x,y,obj_roller)) &amp;&amp; (del = 0) {
+    alarm[0] = 30;
+    del = 1;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_seller">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.money += value;
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -131,6 +184,33 @@ if (steps == 0) {
 if (steps == 0 &amp;&amp; !place_meeting(x, y, obj_starter)) {
     steps = 16;
     dir = other.image_angle / 90;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_starter">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy if touching different starter
+
+if (steps == 0) {
+    instance_destroy()
 }
 </string>
           </argument>

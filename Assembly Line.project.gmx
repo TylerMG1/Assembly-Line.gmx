@@ -8,8 +8,11 @@
   <sprites name="sprites">
     <sprites name="Materials">
       <sprite>sprites\spr_stone</sprite>
+      <sprite>sprites\spr_stone_icon</sprite>
       <sprite>sprites\spr_iron_ore</sprite>
+      <sprite>sprites\spr_iron_icon</sprite>
       <sprite>sprites\spr_copper</sprite>
+      <sprite>sprites\spr_copper_icon</sprite>
       <sprite>sprites\spr_iron_ingot</sprite>
       <sprite>sprites\spr_copper_ingot</sprite>
       <sprite>sprites\spr_wood</sprite>
@@ -18,6 +21,7 @@
       <sprite>sprites\spr_starter</sprite>
       <sprite>sprites\spr_roller</sprite>
       <sprite>sprites\spr_furnace</sprite>
+      <sprite>sprites\spr_seller</sprite>
     </sprites>
     <sprite>sprites\spr_controller</sprite>
     <sprite>sprites\spr_cheeky</sprite>
@@ -26,6 +30,9 @@
     <background>background\bgr_grid</background>
   </backgrounds>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\ft_pixel</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_room_controller</object>
     <objects name="Materials">
@@ -39,6 +46,7 @@
     <objects name="Machines">
       <object>objects\obj_starter</object>
       <object>objects\obj_furnace</object>
+      <object>objects\obj_seller</object>
       <object>objects\obj_roller</object>
     </objects>
   </objects>
