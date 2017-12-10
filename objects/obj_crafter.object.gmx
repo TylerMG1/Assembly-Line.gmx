@@ -32,6 +32,7 @@ delay = 60;
 dir = 0;
 gui = 0;
 gui2 = 0;
+
 copper = 0;
 iron = 0;
 sand = 0;
@@ -39,9 +40,8 @@ wood = 0;
 stone = 0;
 copperingot = 0;
 ironingot = 0;
+
 move_snap(32, 32);
-
-
 instance_create(x, y, obj_roller);
 </string>
           </argument>
@@ -94,7 +94,8 @@ inst.dir = dir;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if gui = 1 {
+            <string>/// Checks the product
+if gui = 1 {
 
     // Checks if stone is clicked
     

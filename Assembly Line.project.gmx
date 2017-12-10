@@ -12,6 +12,8 @@
       <sprite>sprites\spr_copper</sprite>
       <sprite>sprites\spr_iron_ingot</sprite>
       <sprite>sprites\spr_copper_ingot</sprite>
+      <sprite>sprites\spr_iron_wire</sprite>
+      <sprite>sprites\spr_copper_wire</sprite>
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_sand</sprite>
       <sprite>sprites\spr_silicon</sprite>
@@ -22,6 +24,7 @@
       <sprite>sprites\spr_furnace</sprite>
       <sprite>sprites\spr_seller</sprite>
       <sprite>sprites\spr_crusher</sprite>
+      <sprite>sprites\spr_moulder</sprite>
       <sprite>sprites\spr_crafter</sprite>
     </sprites>
     <sprite>sprites\spr_controller</sprite>
@@ -53,15 +56,18 @@
       <object>objects\obj_stone</object>
       <object>objects\obj_iron_ore</object>
       <object>objects\obj_copper_ore</object>
-      <object>objects\obj_sand</object>
       <object>objects\obj_iron_ingot</object>
-      <object>objects\obj_silicon</object>
       <object>objects\obj_copper_ingot</object>
+      <object>objects\obj_sand</object>
+      <object>objects\obj_iron_wire</object>
+      <object>objects\obj_copper_wire</object>
+      <object>objects\obj_silicon</object>
     </objects>
     <objects name="Machines">
       <object>objects\obj_starter</object>
       <object>objects\obj_crafter</object>
       <object>objects\obj_furnace</object>
+      <object>objects\obj_moulder</object>
       <object>objects\obj_crusher</object>
       <object>objects\obj_seller</object>
       <object>objects\obj_roller</object>

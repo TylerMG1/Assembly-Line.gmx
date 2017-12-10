@@ -123,7 +123,10 @@ if (global.selected != -1) &amp;&amp; !(position_empty(mouse_x,mouse_y)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Deletes object object followin</string>
+            <string>/// Deselected current object
+
+global.selected = -1;
+</string>
           </argument>
         </arguments>
       </action>
