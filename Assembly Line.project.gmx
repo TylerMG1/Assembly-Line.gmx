@@ -22,6 +22,7 @@
       <sprite>sprites\spr_furnace</sprite>
       <sprite>sprites\spr_seller</sprite>
       <sprite>sprites\spr_crusher</sprite>
+      <sprite>sprites\spr_crafter</sprite>
     </sprites>
     <sprite>sprites\spr_controller</sprite>
     <sprite>sprites\spr_cross</sprite>
@@ -59,6 +60,7 @@
     </objects>
     <objects name="Machines">
       <object>objects\obj_starter</object>
+      <object>objects\obj_crafter</object>
       <object>objects\obj_furnace</object>
       <object>objects\obj_crusher</object>
       <object>objects\obj_seller</object>
