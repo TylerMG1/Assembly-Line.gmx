@@ -8,29 +8,32 @@
   <sprites name="sprites">
     <sprites name="Materials">
       <sprite>sprites\spr_stone</sprite>
-      <sprite>sprites\spr_stone_icon</sprite>
       <sprite>sprites\spr_iron_ore</sprite>
-      <sprite>sprites\spr_iron_icon</sprite>
       <sprite>sprites\spr_copper</sprite>
-      <sprite>sprites\spr_copper_icon</sprite>
       <sprite>sprites\spr_iron_ingot</sprite>
       <sprite>sprites\spr_copper_ingot</sprite>
       <sprite>sprites\spr_wood</sprite>
     </sprites>
     <sprites name="Machines">
       <sprite>sprites\spr_starter</sprite>
-      <sprite>sprites\spr_starter_icon</sprite>
       <sprite>sprites\spr_roller</sprite>
-      <sprite>sprites\spr_roller_icon</sprite>
       <sprite>sprites\spr_furnace</sprite>
-      <sprite>sprites\spr_furnace_icon</sprite>
       <sprite>sprites\spr_seller</sprite>
-      <sprite>sprites\spr_seller_icon</sprite>
+      <sprite>sprites\spr_crusher</sprite>
     </sprites>
     <sprite>sprites\spr_controller</sprite>
     <sprite>sprites\spr_cross</sprite>
     <sprite>sprites\spr_cheeky</sprite>
     <sprite>sprites\spr_delete</sprite>
+    <sprites name="Icon">
+      <sprite>sprites\spr_starter_icon</sprite>
+      <sprite>sprites\spr_furnace_icon</sprite>
+      <sprite>sprites\spr_roller_icon</sprite>
+      <sprite>sprites\spr_seller_icon</sprite>
+      <sprite>sprites\spr_copper_icon</sprite>
+      <sprite>sprites\spr_iron_icon</sprite>
+      <sprite>sprites\spr_stone_icon</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bgr_grid</background>
