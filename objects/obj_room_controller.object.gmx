@@ -33,6 +33,7 @@ global.gui = 0;
 global.copperlocked = 1;
 global.ironlocked = 1;
 global.furnacelocked = 1;
+global.crusherlocked = 1;
 global.money = 1000;
 gui = 0;
 col = c_white;
@@ -122,10 +123,7 @@ if (global.selected != -1) &amp;&amp; !(position_empty(mouse_x,mouse_y)) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Deletes object object following cursor
-
-global.selected = -1;
-</string>
+            <string>/// Deletes object object followin</string>
           </argument>
         </arguments>
       </action>
@@ -216,6 +214,26 @@ if gui = 1 {
                 global.money -= 5000;
                 global.furnacelocked = 0;
                 global.selected = obj_furnace;
+                gui = 0;
+            }
+        }
+    }
+    
+    // Checks is Crusher is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,336,400,416,464) {
+        if global.crusherlocked = 0 {
+            global.selected = obj_crusher;
+            global.gui = 0;
+            gui = 0;
+            if global.money &gt;= 200 {
+                global.money -= 200;
+            }
+        } else {
+            if global.money &gt;= 5000 {
+                global.money -= 5000;
+                global.crusherlocked = 0;
+                global.selected = obj_crusher;
                 gui = 0;
             }
         }
@@ -348,6 +366,25 @@ if gui = 1 {
         draw_text(296,400,"Furnace");
         draw_text(296,440,"Cost:$5k");
     }
+    
+    // Draw Crusher
+    
+    if global.crusherlocked = 0 {
+        draw_sprite(spr_crusher_icon,1,376,429);
+        draw_text(376,400,"Crusher");
+        draw_text(376,440,"Cost:$400");
+    } else {
+        draw_set_alpha(0.25);
+    if global.money &gt;= 5000 {
+        draw_set_color(c_green);
+    } else {
+        draw_set_color(c_red);
+    }
+        draw_sprite(spr_crusher_icon,1,376,429);
+        draw_set_alpha(1);
+        draw_text(376,400,"Crusher");
+        draw_text(376,440,"Cost:$5k");
+    }
 }
 </string>
           </argument>
@@ -394,29 +431,6 @@ if global.gui != 2 {
 draw_set_color(c_white);
 draw_set_font(ft_pixel);
 draw_text(592,8,global.money);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="110">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>global.money += 1000;
 </string>
           </argument>
         </arguments>
@@ -577,6 +591,29 @@ global.selected = obj_roller;
             <string>///Select Starter
 
 global.selected = obj_starter;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="17">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.money += 1000;
 </string>
           </argument>
         </arguments>

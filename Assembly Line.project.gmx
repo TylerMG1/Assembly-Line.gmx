@@ -35,6 +35,7 @@
       <sprite>sprites\spr_copper_icon</sprite>
       <sprite>sprites\spr_iron_icon</sprite>
       <sprite>sprites\spr_stone_icon</sprite>
+      <sprite>sprites\spr_crusher_icon</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
