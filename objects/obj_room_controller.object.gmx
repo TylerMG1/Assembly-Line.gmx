@@ -163,6 +163,9 @@ if (global.selected != -1) &amp;&amp; position_empty(mouse_x,mouse_y) {
     global.gui = 2;
 }
 
+
+// Checks if clicks on gui
+
 if gui = 1 {
 
     // Checks if starter is clicked

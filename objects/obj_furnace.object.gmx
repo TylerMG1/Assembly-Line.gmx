@@ -29,6 +29,8 @@
 
 move_snap(32, 32);
 instance_create(x, y, obj_roller);
+
+dir = 0;
 </string>
           </argument>
         </arguments>
@@ -51,7 +53,7 @@ instance_create(x, y, obj_roller);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Deletes the starter
+            <string>/// Deletes the starter
 
 if place_meeting(x,y,obj_delete) {
     instance_destroy();
