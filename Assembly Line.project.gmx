@@ -13,6 +13,8 @@
       <sprite>sprites\spr_iron_ingot</sprite>
       <sprite>sprites\spr_copper_ingot</sprite>
       <sprite>sprites\spr_wood</sprite>
+      <sprite>sprites\spr_sand</sprite>
+      <sprite>sprites\spr_silicon</sprite>
     </sprites>
     <sprites name="Machines">
       <sprite>sprites\spr_starter</sprite>
@@ -49,12 +51,15 @@
       <object>objects\obj_stone</object>
       <object>objects\obj_iron_ore</object>
       <object>objects\obj_copper_ore</object>
+      <object>objects\obj_sand</object>
       <object>objects\obj_iron_ingot</object>
+      <object>objects\obj_silicon</object>
       <object>objects\obj_copper_ingot</object>
     </objects>
     <objects name="Machines">
       <object>objects\obj_starter</object>
       <object>objects\obj_furnace</object>
+      <object>objects\obj_crusher</object>
       <object>objects\obj_seller</object>
       <object>objects\obj_roller</object>
     </objects>
