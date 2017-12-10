@@ -65,6 +65,7 @@
       <object>objects\obj_roller</object>
     </objects>
     <object>objects\obj_delete</object>
+    <object>objects\obj_profit</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rom_one</room>
