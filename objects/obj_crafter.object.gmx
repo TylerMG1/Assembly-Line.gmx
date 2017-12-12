@@ -32,14 +32,7 @@ delay = 60;
 dir = 0;
 gui = 0;
 gui2 = 0;
-
-copper = 0;
-iron = 0;
-sand = 0;
-wood = 0;
-stone = 0;
-copperingot = 0;
-ironingot = 0;
+materials[-1] = 0;
 
 move_snap(32, 32);
 instance_create(x, y, obj_roller);

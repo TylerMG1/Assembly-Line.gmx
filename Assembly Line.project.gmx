@@ -17,6 +17,8 @@
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_sand</sprite>
       <sprite>sprites\spr_silicon</sprite>
+      <sprite>sprites\spr_circuit_board</sprite>
+      <sprite>sprites\spr_glass</sprite>
     </sprites>
     <sprites name="Machines">
       <sprite>sprites\spr_starter</sprite>
@@ -59,6 +61,7 @@
       <object>objects\obj_iron_ingot</object>
       <object>objects\obj_copper_ingot</object>
       <object>objects\obj_sand</object>
+      <object>objects\obj_glass</object>
       <object>objects\obj_iron_wire</object>
       <object>objects\obj_copper_wire</object>
       <object>objects\obj_silicon</object>

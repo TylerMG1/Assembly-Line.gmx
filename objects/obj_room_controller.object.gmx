@@ -157,15 +157,33 @@ if (global.selected = obj_delete) &amp;&amp; !(position_empty(mouse_x,mouse_y)) 
     global.gui = 2;
 }
 
-if (global.selected != -1) &amp;&amp; position_empty(mouse_x,mouse_y) {
+if (global.selected != -1) &amp;&amp; position_empty(mouse_x, mouse_y) {
     instance_create((round(mouse_x/32))*32, (round(mouse_y/32))*32,global.selected);
     global.selected = -1;
     gui = 1;
     global.gui = 2;
 }
-
-
-// Checks if clicks on gui
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Checks if clicks on gui
 
 if gui = 1 {
 
@@ -249,8 +267,6 @@ if gui = 1 {
     }
     
 }
-
-
 </string>
           </argument>
         </arguments>
