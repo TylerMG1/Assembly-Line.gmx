@@ -48,6 +48,12 @@
     <background>background\bgr_grid</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_materials_step.gml</script>
+    <script>scripts\scr_materials_create.gml</script>
+    <script>scripts\scr_crafter_step.gml</script>
+    <script>scripts\scr_crafter_create.gml</script>
+  </scripts>
   <fonts name="fonts">
     <font>fonts\ft_pixel</font>
   </fonts>
@@ -65,9 +71,11 @@
       <object>objects\obj_iron_wire</object>
       <object>objects\obj_copper_wire</object>
       <object>objects\obj_silicon</object>
+      <object>objects\obj_circuit_board</object>
     </objects>
     <objects name="Machines">
       <object>objects\obj_starter</object>
+      <object>objects\obj_crafter3</object>
       <object>objects\obj_crafter</object>
       <object>objects\obj_furnace</object>
       <object>objects\obj_moulder</object>

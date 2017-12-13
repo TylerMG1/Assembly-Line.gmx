@@ -126,6 +126,21 @@ alarm[0] = delay;
         }
     }
     
+    // Checks is iron is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,256,400,336,464) {
+        if global.siliconlocked = 0 {
+            product = obj_silicon;
+            global.gui = 0;
+        } else {
+            if global.money &gt;= 10000 {
+                global.money -= 10000;
+                global.siliconlocked = 0;
+                product = obj_silicon;
+            }
+        }
+    }
+    
     // Checks if cross is clicked
     
     if point_in_rectangle(mouse_x,mouse_y,576,384,592,400) {
@@ -257,6 +272,28 @@ if gui = 1 {
         draw_set_alpha(1);
         draw_text(216,400,"Iron");
         draw_text(216,440,"Cost:$10k");
+    }
+    
+    // Draw Silicon
+    
+    if product = obj_silicon {
+        draw_rectangle(256,400,336,464,c_white);
+    }  
+    if global.ironlocked = 0 {
+    draw_sprite_ext(spr_silicon,1,296,432,2,2,0,c_white,1);
+    draw_text(296,400,"Silicon");
+    draw_text(296,440,"Value:$50");
+    } else {
+    draw_set_alpha(0.25);
+    if global.money &gt;= 10000 {
+        draw_set_color(c_green);
+    } else {
+        draw_set_color(c_red);
+    }
+        draw_sprite_ext(spr_silicon,1,296,432,2,2,0,c_white,0.25);
+        draw_set_alpha(1);
+        draw_text(296,400,"Silicon");
+        draw_text(296,440,"Cost:$10k");
     }
 }
 </string>

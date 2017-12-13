@@ -32,8 +32,11 @@ global.selected = -1;
 global.gui = 0;
 global.copperlocked = 1;
 global.ironlocked = 1;
+global.siliconlocked = 1;
 global.furnacelocked = 1;
 global.crusherlocked = 1;
+global.crafterlocked = 1;
+global.moulderlocked = 1;
 global.money = 1000;
 gui = 0;
 col = c_white;
@@ -260,6 +263,46 @@ if gui = 1 {
         }
     }
     
+    // Checks is Moulder is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,416,400,496,464) {
+        if global.moulderlocked = 0 {
+            global.selected = obj_moulder;
+            global.gui = 0;
+            gui = 0;
+            if global.money &gt;= 1000 {
+                global.money -= 1000;
+            }
+        } else {
+            if global.money &gt;= 7500 {
+                global.money -= 7500;
+                global.moulderlocked = 0;
+                global.selected = obj_moulder;
+                gui = 0;
+            }
+        }
+    }
+    
+    // Checks is Crafter is clicked
+    
+    if point_in_rectangle(mouse_x,mouse_y,496,400,576,464) {
+        if global.crafterlocked = 0 {
+            global.selected = obj_crafter;
+            global.gui = 0;
+            gui = 0;
+            if global.money &gt;= 1000 {
+                global.money -= 1000;
+            }
+        } else {
+            if global.money &gt;= 7500 {
+                global.money -= 7500;
+                global.crafterlocked = 0;
+                global.selected = obj_crafter;
+                gui = 0;
+            }
+        }
+    }
+    
     // Checks if cross is clicked
     
     if point_in_rectangle(mouse_x,mouse_y,576,384,592,400) {
@@ -361,6 +404,44 @@ if gui = 1 {
         draw_set_alpha(1);
         draw_text(376,400,"Crusher");
         draw_text(376,440,"Cost:$5k");
+    }
+    
+    // Draw moulder
+    
+    if global.moulderlocked = 0 {
+        draw_sprite_ext(spr_moulder,1,456,429,0.75,0.75,0,c_white,1);
+        draw_text(456,400,"Moulder");
+        draw_text(456,440,"Cost:$1k");
+    } else {
+        draw_set_alpha(0.25);
+    if global.money &gt;= 7500 {
+        draw_set_color(c_green);
+    } else {
+        draw_set_color(c_red);
+    }
+        draw_sprite_ext(spr_moulder,1,456,429,0.75,0.75,0,c_white,0.25);
+        draw_set_alpha(1);
+        draw_text(456,400,"Moulder");
+        draw_text(456,440,"Cost:$7.5k");
+    }
+    
+    // Draw crafter
+    
+    if global.crafterlocked = 0 {
+        draw_sprite_ext(spr_crafter,1,536,429,0.75,0.75,0,c_white,1);
+        draw_text(536,400,"Crafter");
+        draw_text(536,440,"Cost:$1k");
+    } else {
+        draw_set_alpha(0.25);
+    if global.money &gt;= 7500 {
+        draw_set_color(c_green);
+    } else {
+        draw_set_color(c_red);
+    }
+        draw_sprite_ext(spr_crafter,1,536,429,0.75,0.75,0,c_white,0.25);
+        draw_set_alpha(1);
+        draw_text(536,400,"Crafter");
+        draw_text(536,440,"Cost:$7.5k");
     }
 }
 </string>
