@@ -51,11 +51,10 @@
   <scripts name="scripts">
     <script>scripts\scr_materials_step.gml</script>
     <script>scripts\scr_materials_create.gml</script>
-    <script>scripts\scr_crafter_step.gml</script>
-    <script>scripts\scr_crafter_create.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\ft_pixel</font>
+    <font>fonts\fnt_pixel_sml</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_room_controller</object>
@@ -75,7 +74,6 @@
     </objects>
     <objects name="Machines">
       <object>objects\obj_starter</object>
-      <object>objects\obj_crafter3</object>
       <object>objects\obj_crafter</object>
       <object>objects\obj_furnace</object>
       <object>objects\obj_moulder</object>

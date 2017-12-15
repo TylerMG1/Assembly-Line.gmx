@@ -371,6 +371,7 @@ if gui = 1 {
     // Draw Furnace
     
     if global.furnacelocked = 0 {
+        draw_set_color(c_white);
         draw_sprite(spr_furnace_icon,1,296,429);
         draw_text(296,400,"Furnace");
         draw_text(296,440,"Cost:$500");
@@ -390,6 +391,7 @@ if gui = 1 {
     // Draw Crusher
     
     if global.crusherlocked = 0 {
+        draw_set_color(c_white);
         draw_sprite(spr_crusher_icon,1,376,429);
         draw_text(376,400,"Crusher");
         draw_text(376,440,"Cost:$400");
@@ -409,6 +411,7 @@ if gui = 1 {
     // Draw moulder
     
     if global.moulderlocked = 0 {
+        draw_set_color(c_white);
         draw_sprite_ext(spr_moulder,1,456,429,0.75,0.75,0,c_white,1);
         draw_text(456,400,"Moulder");
         draw_text(456,440,"Cost:$1k");
@@ -428,6 +431,7 @@ if gui = 1 {
     // Draw crafter
     
     if global.crafterlocked = 0 {
+        draw_set_color(c_white);
         draw_sprite_ext(spr_crafter,1,536,429,0.75,0.75,0,c_white,1);
         draw_text(536,400,"Crafter");
         draw_text(536,440,"Cost:$1k");
@@ -490,6 +494,28 @@ draw_set_color(c_white);
 draw_set_font(ft_pixel);
 draw_text(592,8,global.money);
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="122">
+      <action>
+        <libid>1</libid>
+        <id>531</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_fullscreen</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -683,6 +709,22 @@ if global.gui = 2 {
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>332</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_end_game</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="9" enumb="17">

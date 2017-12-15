@@ -32,6 +32,7 @@ delay = 60;
 dir = 0;
 gui = 0;
 gui2 = 0;
+gui3 = 0;
 copper = 0;
 iron = 0;
 sand = 0;
@@ -151,6 +152,56 @@ if gui = 1 {
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Disable Gui3
+
+gui3 = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Sets variable to trigger draw event
+
+gui3 = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="5">
       <action>
         <libid>1</libid>
@@ -218,7 +269,7 @@ if gui = 1 {
     draw_rectangle_colour(576,384,592,400,c_dkgray,c_dkgray,c_dkgray,c_dkgray,c_black);
     draw_sprite(spr_cross,1,584,392)
     
-    // Draws silicon
+    // Draws Circuit
     
     if product = obj_circuit_board {
         draw_rectangle(16,400,96,464,c_white);
@@ -272,6 +323,24 @@ if gui = 1 {
         draw_text(216,440,"Cost:$10k");
     }
 }
+
+// Draw menu next to mouse
+
+if gui3 = 1 {
+    draw_rectangle_colour(mouse_x,mouse_y,mouse_x + 136,mouse_y - 32,c_dkgray,c_dkgray,c_dkgray,c_dkgray,c_black);
+    
+    // Draws cicuit board ingredients
+    
+    if product = obj_circuit_board {
+        draw_sprite(spr_copper_wire,1,mouse_x + 24,mouse_y-16);
+        draw_set_font(fnt_pixel_sml);
+        draw_text(mouse_x + 24,mouse_y - 4, "Copper Wire");
+        draw_text(mouse_x + 32,mouse_y - 24, string(copperwire) + "/5");
+    }
+    
+}
+
+draw_set_font(ft_pixel);
 </string>
           </argument>
         </arguments>

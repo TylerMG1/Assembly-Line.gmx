@@ -231,10 +231,12 @@ if gui = 1 {
     
     // Draws copper
     
+    draw_set_color(c_white);
     if product = obj_copper_ore {
         draw_rectangle(96,400,176,464,c_white);
     }  
     if global.copperlocked = 0 {
+        draw_set_color(c_white);
         draw_sprite(spr_copper_icon,1,136,432);
         draw_text(136,400,"Copper");
         draw_text(136,440,"Value:$25");
@@ -254,15 +256,17 @@ if gui = 1 {
     
     // Draw Iron
     
+    draw_set_color(c_white);
     if product = obj_iron_ore {
         draw_rectangle(176,400,256,464,c_white);
     }  
     if global.ironlocked = 0 {
-    draw_sprite(spr_iron_icon,1,216,432);
-    draw_text(216,400,"Iron");
-    draw_text(216,440,"Value:$50");
+        draw_set_color(c_white);
+        draw_sprite(spr_iron_icon,1,216,432);
+        draw_text(216,400,"Iron");
+        draw_text(216,440,"Value:$50");
     } else {
-    draw_set_alpha(0.25);
+        draw_set_alpha(0.25);
     if global.money &gt;= 10000 {
         draw_set_color(c_green);
     } else {
@@ -276,15 +280,16 @@ if gui = 1 {
     
     // Draw Silicon
     
+    draw_set_color(c_white);
     if product = obj_silicon {
         draw_rectangle(256,400,336,464,c_white);
     }  
-    if global.ironlocked = 0 {
-    draw_sprite_ext(spr_silicon,1,296,432,2,2,0,c_white,1);
-    draw_text(296,400,"Silicon");
-    draw_text(296,440,"Value:$50");
+    if global.siliconlocked = 0 {
+        draw_sprite_ext(spr_silicon,1,296,432,2,2,0,c_white,1);
+        draw_text(296,400,"Silicon");
+        draw_text(296,440,"Value:$50");
     } else {
-    draw_set_alpha(0.25);
+        draw_set_alpha(0.25);
     if global.money &gt;= 10000 {
         draw_set_color(c_green);
     } else {
