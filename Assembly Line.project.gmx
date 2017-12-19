@@ -16,9 +16,11 @@
       <sprite>sprites\spr_copper_wire</sprite>
       <sprite>sprites\spr_wood</sprite>
       <sprite>sprites\spr_sand</sprite>
+      <sprite>sprites\spr_silicon_ore</sprite>
       <sprite>sprites\spr_silicon</sprite>
       <sprite>sprites\spr_circuit_board</sprite>
       <sprite>sprites\spr_glass</sprite>
+      <sprite>sprites\spr_bulb</sprite>
     </sprites>
     <sprites name="Machines">
       <sprite>sprites\spr_starter</sprite>
